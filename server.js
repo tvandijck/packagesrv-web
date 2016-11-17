@@ -11,7 +11,6 @@ var express = require('express')
   , highlight = require('highlight')
   , fs = require('fs')
   , app = express()
-  , template = require('pug').compileFile(__dirname + '/source/templates/homepage.pug')
   , c_secrets = require('./secrets.js')
 
 //------------------------------------------------------------------------------
@@ -22,11 +21,13 @@ if (c_secrets.BASE_URL) {
 	base_url = c_secrets.BASE_URL;
 }
 
+
 //------------------------------------------------------------------------------
 // express
 
 app.use(logger('dev'))
 app.use(express.static(__dirname + '/static'))
+app.set('view engine', 'pug');
 
 app.use(cookieSession({ name: 'session', keys: ['39Er5F3tdn', 'xX5eWOdOlb'] }))
 
@@ -81,10 +82,9 @@ passport.deserializeUser(function(obj, done) {
 
 //------------------------------------------------------------------------------
 
-app.get('/', function (req, res, next) {
+app.get('/', function (request, response, next) {
   try {
-    var html = template({ title: 'Home' })
-    res.send(html)
+    response.render('Home', { user: request.user });
   } catch (e) {
     next(e)
   }
