@@ -6,7 +6,8 @@ html
 
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
-    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/github.min.css')    
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/github.min.css')
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700')
     link(rel='stylesheet', href='/css/packageserver.css')
 
     title Premake Package & Module Server
@@ -21,26 +22,30 @@ html
           .col-md-4
             ul.nav.navbar-nav.navbar-header.navbar-right
               li: a(href='mailto:tom@tomvandijck.com') Contact
-    .bnet-navbar-small
+    .bnet-navbar-static
       .container
-        header.bnet-navbar.small
-          ul.nav.navbar-right
-            if user 
-              li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-                  i.fa.fa-github.fa-lg
-                  span 
-                    =user.name
-                  span.caret
-                ul.dropdown-menu
-                  li: img(src=user.avatar_url) 
-                  li: a(href=user.profile_url) Profile
-                  li: a(href='/logout') Log out
-            else
-              li.navbar-right: a(href='/login') 
-                span Log in with GitHub
+        ul.nav.navbar-nav.navbar-secondary.navbar-left
+          li: a(href='/')
+            span: i.fa.fa-home 
+            span Home 
+
+        ul.nav.navbar-nav.navbar-secondary.navbar-right
+          if user 
+            li.dropdown
+              a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                i.fa.fa-github.fa-lg
                 span 
-                  i.fa.fa-github.fa-lg
+                  =user.name
+                span.caret
+              ul.dropdown-menu
+                li: img(src=user.avatar_url) 
+                li: a(href=user.profile_url) Profile
+                li: a(href='/logout') Log out
+          else
+            li: a(href='/login') 
+              span Log in with GitHub
+              span 
+                i.fa.fa-github.fa-lg
 
     section.content-wrapper.main-content.clear-fix
       block content
