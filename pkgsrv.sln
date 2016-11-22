@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.25914.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FA0797F1-4E4C-4A7E-BAFB-1920CDDCEDC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pkgsrv", "src\pkgsrv\pkgsrv.csproj", "{C4EA7474-7F79-40C3-A729-F302133DB92E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4EA7474-7F79-40C3-A729-F302133DB92E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4EA7474-7F79-40C3-A729-F302133DB92E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4EA7474-7F79-40C3-A729-F302133DB92E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4EA7474-7F79-40C3-A729-F302133DB92E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C4EA7474-7F79-40C3-A729-F302133DB92E} = {FA0797F1-4E4C-4A7E-BAFB-1920CDDCEDC0}
+	EndGlobalSection
+EndGlobal

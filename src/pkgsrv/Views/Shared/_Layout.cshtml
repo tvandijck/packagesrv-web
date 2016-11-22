@@ -1,0 +1,95 @@
+﻿@using Mvc.Client.Extensions;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - pkgsrv</title>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/github.min.css" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" />
+    <link rel="stylesheet" href="~/css/packageserver.min.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="bnet-navbar-static">
+        <div class="container">
+            <header class="bnet-navbar header">
+                <div class="col-xs-8">
+                    <a class="brand-mark" href="https://premake.github.io"></a>
+                    <ul class="nav navbar-nav navbar-header navbar-left">
+                        <li><a href="/"> Package Server</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-4">
+                    <ul class="nav navbar-nav navbar-header navbar-right">
+                        <li><a href="mailto:tom@tomvandijck.com">Contact</a></li>
+                    </ul>
+                </div>
+            </header>
+        </div>
+    </div>
+    <div class="bnet-navbar-static">
+        <div class="container">
+            <div class="col-xs-8">
+                <ul class="nav navbar-nav navbar-secondary navbar-left">
+                    <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-4">
+                <ul class="nav navbar-nav navbar-secondary navbar-right">
+                    @if (User?.Identity?.IsAuthenticated ?? false)
+                    {
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-github fa-lg"></i>
+                                <span>@User.GetFullName()</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><img src="@User.GetAvatarUrl()" /></li>
+                                <li><a href="@User.GetProfileUrl()" >Profile</a></li>
+                                <li><a href="/logout">Log out</a></li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a href="/login">Log in with GitHub <i class="fa fa-github fa-lg"></i></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="content-wrapper main-content clearfix">
+        @RenderBody()
+    </section>
+
+    <footer class="footer-content">
+        <div class="container">
+            <div class="col-xs-8">
+                <div class="legal">
+                    <span class="copyright">Copyright © 2016 by Tom van Dijck</span>
+                    <span class="supplemental">Premake Package & Module Server 0.1.0</span>
+                    <span class="links">
+                        <a href="https://github.com/tvandijck/packagesrv-web">Help us to Improve</a>
+                        <a href="https://github.com/tvandijck/packagesrv-web/issues">Report an Issue</a>
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <span class="premake">Premake</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/js/site.min.js" asp-append-version="true"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
